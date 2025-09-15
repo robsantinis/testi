@@ -175,56 +175,6 @@ const AnimatedBackground: React.FC = () => {
         className="fixed inset-0 w-full h-full"
         style={{ zIndex: 1 }}
       />
-      
-      {/* Subtle musical staff lines with purple tint */}
-      <div 
-        className="fixed inset-0 opacity-8"
-        style={{
-          zIndex: 2,
-          backgroundImage: `
-            repeating-linear-gradient(
-              0deg,
-              transparent,
-              transparent 80px,
-              rgba(255,255,255,0.08) 82px,
-              rgba(255,255,255,0.08) 84px,
-              transparent 86px
-            )
-          `,
-          backgroundPosition: '0 20%'
-        }}
-      />
-
-      {/* Minimal treble clef pattern with softer colors */}
-      <div 
-        className="fixed top-1/4 left-1/4 opacity-4"
-        style={{
-          zIndex: 3,
-          fontSize: '200px',
-          color: 'rgba(255,255,255,0.06)',
-          fontFamily: 'serif',
-          transform: 'rotate(-15deg)',
-          userSelect: 'none',
-          pointerEvents: 'none'
-        }}
-      >
-        𝄞
-      </div>
-
-      <div 
-        className="fixed bottom-1/4 right-1/4 opacity-4"
-        style={{
-          zIndex: 3,
-          fontSize: '150px',
-          color: 'rgba(255,255,255,0.06)',
-          fontFamily: 'serif',
-          transform: 'rotate(20deg)',
-          userSelect: 'none',
-          pointerEvents: 'none'
-        }}
-      >
-        𝄢
-      </div>
     </>
   );
 };
