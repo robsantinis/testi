@@ -34,7 +34,7 @@ const AnimatedBackground: React.FC = () => {
         this.y = canvas.height + 50;
         this.vx = (Math.random() - 0.5) * 0.5;
         this.vy = -Math.random() * 0.8 - 0.2;
-        this.opacity = Math.random() * 0.3 + 0.1;
+        this.opacity = Math.random() * 0.2 + 0.05;
         this.size = Math.random() * 20 + 15;
         
         // Different musical symbols
@@ -63,7 +63,8 @@ const AnimatedBackground: React.FC = () => {
       draw() {
         ctx.save();
         ctx.globalAlpha = this.opacity;
-        ctx.fillStyle = '#ffffff';
+        // Changed to a softer purple-white color to match the card theme
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
         ctx.font = `${this.size}px serif`;
         ctx.textAlign = 'center';
         ctx.fillText(this.type, this.x, this.y);
@@ -86,7 +87,7 @@ const AnimatedBackground: React.FC = () => {
         this.frequency = Math.random() * 0.01 + 0.005;
         this.phase = Math.random() * Math.PI * 2;
         this.speed = Math.random() * 0.01 + 0.005;
-        this.opacity = Math.random() * 0.2 + 0.1;
+        this.opacity = Math.random() * 0.15 + 0.05;
       }
 
       update() {
@@ -96,7 +97,8 @@ const AnimatedBackground: React.FC = () => {
       draw() {
         ctx.save();
         ctx.globalAlpha = this.opacity;
-        ctx.strokeStyle = '#ffffff';
+        // Changed to a subtle purple-white color
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
         ctx.lineWidth = 1;
         ctx.beginPath();
 
@@ -132,11 +134,12 @@ const AnimatedBackground: React.FC = () => {
     let animationId: number;
     
     const animate = () => {
-      // Clear canvas with subtle gradient
+      // Clear canvas with gradient that matches the card design
       const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-      gradient.addColorStop(0, '#1a1a1a');
-      gradient.addColorStop(0.5, '#2d2d2d');
-      gradient.addColorStop(1, '#1a1a1a');
+      gradient.addColorStop(0, '#0f0f23');  // Dark purple-blue
+      gradient.addColorStop(0.3, '#1a1a2e'); // Medium purple-blue
+      gradient.addColorStop(0.7, '#16213e'); // Slightly lighter blue
+      gradient.addColorStop(1, '#0f0f23');   // Back to dark
       
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -173,9 +176,9 @@ const AnimatedBackground: React.FC = () => {
         style={{ zIndex: 1 }}
       />
       
-      {/* Subtle musical staff lines */}
+      {/* Subtle musical staff lines with purple tint */}
       <div 
-        className="fixed inset-0 opacity-10"
+        className="fixed inset-0 opacity-8"
         style={{
           zIndex: 2,
           backgroundImage: `
@@ -183,8 +186,8 @@ const AnimatedBackground: React.FC = () => {
               0deg,
               transparent,
               transparent 80px,
-              rgba(255,255,255,0.1) 82px,
-              rgba(255,255,255,0.1) 84px,
+              rgba(255,255,255,0.08) 82px,
+              rgba(255,255,255,0.08) 84px,
               transparent 86px
             )
           `,
@@ -192,13 +195,13 @@ const AnimatedBackground: React.FC = () => {
         }}
       />
 
-      {/* Minimal treble clef pattern */}
+      {/* Minimal treble clef pattern with softer colors */}
       <div 
-        className="fixed top-1/4 left-1/4 opacity-5"
+        className="fixed top-1/4 left-1/4 opacity-4"
         style={{
           zIndex: 3,
           fontSize: '200px',
-          color: 'rgba(255,255,255,0.1)',
+          color: 'rgba(255,255,255,0.06)',
           fontFamily: 'serif',
           transform: 'rotate(-15deg)',
           userSelect: 'none',
@@ -209,11 +212,11 @@ const AnimatedBackground: React.FC = () => {
       </div>
 
       <div 
-        className="fixed bottom-1/4 right-1/4 opacity-5"
+        className="fixed bottom-1/4 right-1/4 opacity-4"
         style={{
           zIndex: 3,
           fontSize: '150px',
-          color: 'rgba(255,255,255,0.1)',
+          color: 'rgba(255,255,255,0.06)',
           fontFamily: 'serif',
           transform: 'rotate(20deg)',
           userSelect: 'none',
